@@ -1,20 +1,40 @@
 import './App.css';
 import Header from './Components/Header';
 import { useState } from 'react';
+import TodoList from './Components/TodoList';
 
 function App() {
   const [todos, setTodos] = useState([])
+  const [editingTodo, setEditingTodo] = useState(null);
+
 
   const addTodo = (id, title, detail, date) => {
    console.log(title)
     const newTodo = {id: Date.now(), title, detail, date}
     setTodos([...todos, newTodo])
   }
+  const editTodo = todo => {
+    console.log(todo)
+    setEditingTodo(todo);
+  };
 
+  const saveTodo = (id, title, detail, date) => {
+    const updatedTodos = todos.map(todo =>
+      todo.id === id ? { ...todo, title, detail, date } : todo
+    );
+    setTodos(updatedTodos);
+    setEditingTodo(null);
+  };
+  const deleteTodo = id => {
+    const filteredTodos = todos.filter(todo => todo.id !== id);
+    setTodos(filteredTodos);
+  };
   return (
-    <div className="App">
-      <Header onSubmit={addTodo} />
-    </div>  
+    <article className="article-center">
+       {editingTodo ? (<Header onSubmit={saveTodo} todo={editingTodo}  />) : (<Header onSubmit={addTodo} />)}
+       <TodoList todos={todos} onEdit={editTodo} onDelete={deleteTodo} />
+
+    </article>  
   );
 }
 

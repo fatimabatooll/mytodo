@@ -1,6 +1,6 @@
 import React from 'react'
 
-const TodoList = ({todos}) => {
+const TodoList = ({todos, onEdit, onDelete}) => {
   return (
     <div className='todo-list'>
         <ul>
@@ -10,7 +10,10 @@ const TodoList = ({todos}) => {
                     <h3>{todo.title}</h3>
                     <p className='title'>{todo.detail}</p>
                     <date className='title'>{todo.date}</date>
-
+                    <div className='btn-container'>
+               <button  className='edit-btn' onClick={() => onEdit(todo)}>Edit</button>
+               <button className='delete-btn' onClick={() => onDelete(todo.id)}>Del</button>
+          </div>
                     </article>
                 ))
             }

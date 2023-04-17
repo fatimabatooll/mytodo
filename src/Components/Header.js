@@ -34,7 +34,7 @@ const Header = ({onSubmit, todo}) => {
     return (
     <>
     <Button />
-    <section className='sec-div'>
+    <section className='article-div'>
         <form className='form-div' onSubmit={handleSubmit}>
             <div className='form-control'>
                 <h4>Title</h4>
@@ -65,7 +65,7 @@ const Header = ({onSubmit, todo}) => {
                  onChange={e => setDate(e.target.value)}
                  />
             </div>
-            <button className='submit-btn' type='submit'>{}</button>
+            <button className='submit-btn' type="submit">{todo ? 'Save' : 'Add Todo'}</button>
         </form>
 
     </section>
