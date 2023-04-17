@@ -65,7 +65,7 @@ const Header = ({onSubmit, todo}) => {
                  onChange={e => setDate(e.target.value)}
                  />
             </div>
-            <button className='submit-btn' type='submit'></button>
+            <button className='submit-btn' type='submit'>{}</button>
         </form>
 
     </section>

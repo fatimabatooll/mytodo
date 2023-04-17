@@ -6,13 +6,14 @@ function App() {
   const [todos, setTodos] = useState([])
 
   const addTodo = (id, title, detail, date) => {
+   console.log(title)
     const newTodo = {id: Date.now(), title, detail, date}
     setTodos([...todos, newTodo])
   }
 
   return (
     <div className="App">
-      <Header />
+      <Header onSubmit={addTodo} />
     </div>  
   );
 }
