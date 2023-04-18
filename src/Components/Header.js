@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { useState } from "react";
-import Button from "./Button";
+
 
 const Header = ({ onSubmit, todo }) => {
   const [title, setTitle] = useState("");
@@ -37,8 +37,8 @@ const Header = ({ onSubmit, todo }) => {
 
   return (
     <>
-      <Button />
-      <section className="article-div">
+      
+      <section className='sec-center'>
         <form className="form-div" onSubmit={handleSubmit}>
           <div className="form-control">
             <h4>Title</h4>
@@ -68,10 +68,11 @@ const Header = ({ onSubmit, todo }) => {
               value={date}
               onChange={(e) => setDate(e.target.value)}
             />
-          </div>
-          <button className="submit-btn" type="submit">
+            <button className="submit-btn" type="submit">
             {todo ? "Save" : "Add Todo"}
           </button>
+          </div>
+         
         </form>
       </section>
     </>

@@ -98,12 +98,12 @@ h4 {
   box-shadow: var(--light-shadow);
   transition: var(--transition);
   padding: 2rem;
-  width: 50vw;
+  width: 100vw;
 }
 .article-center {
   width: 100vw;
   margin: 0 auto;
-  max-width: 35rem;
+  max-width: 55rem;
   margin-top: 8rem;
 }
 .article-center {

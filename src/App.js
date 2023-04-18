@@ -6,6 +6,7 @@ import TodoList from './Components/TodoList';
 function App() {
   const [todos, setTodos] = useState([])
   const [editingTodo, setEditingTodo] = useState(null);
+  const [showArticle, setShowArticle] = useState(false);
 
 
   const addTodo = (id, title, detail, date) => {
@@ -30,11 +31,21 @@ function App() {
     setTodos(filteredTodos);
   };
   return (
-    <article className="article-center">
-       {editingTodo ? (<Header onSubmit={saveTodo} todo={editingTodo}  />) : (<Header onSubmit={addTodo} />)}
-       <TodoList todos={todos} onEdit={editTodo} onDelete={deleteTodo} />
+    <div>
+    <button className='btn' onClick={() => setShowArticle(true)}>Add Today's Todo</button>
 
-    </article>  
+    {showArticle && (
+      <article className="article-center">
+        {editingTodo ? (
+          <Header onSubmit={saveTodo} todo={editingTodo} />
+        ) : (
+          <Header onSubmit={addTodo} />
+        )}
+        <TodoList todos={todos} onEdit={editTodo} onDelete={deleteTodo} />
+      </article>
+    )}
+  </div>
+
   );
 }
 
